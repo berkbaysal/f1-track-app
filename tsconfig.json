@@ -3,5 +3,5 @@
       "sourceMap": true,
       "jsx": "react-jsx",
     },
-    "include": ["src/components", "src/custom.d.ts", "src/App.tsx", "src/index.tsx"],
+    "include": ["src/components", "src/custom.d.ts", "src/App.tsx", "src/index.tsx", "src/store.ts"],
   }

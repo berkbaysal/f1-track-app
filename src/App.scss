@@ -1,7 +1,10 @@
-@import url("https://use.typekit.net/qqt2chb.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,500;1,700;1,900&display=swap');
 
 *{
-    font-family: titillium-web, sans-serif; 
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    background-color: white;
 }
 
 #root{
@@ -11,40 +14,10 @@
     justify-content: center;
 }
 
-.track-container{
-    width: 600px;
-    height: 600px;
-    perspective: 700px;
-    background-color: black;
-    overflow: hidden;
-    //animation: rotateTrack 20s linear infinite;
-    position: relative;
-}
-.drs{
-    position: absolute;
-    scale: 0.7;
-    transform-style: preserve-3d;
-    animation: rotateDRS 20s linear infinite;
-    color: white;
-    z-index: 20;
-    
-}
-.track{
-    position: absolute;
-    scale: 0.7;
-    transform-style: preserve-3d;
-    animation: rotateTrack 20s linear infinite;
-    color: white;
-    
+.track-name{
+    font-family: all-round-gothic, sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
 }
 
-
-@keyframes rotateTrack{
-    from{transform: rotateX(60deg) rotateZ(0deg) ;}
-    to{transform: rotateX(60deg) rotateZ(360deg);}
-}
-
-@keyframes rotateDRS{
-    from{transform: rotateX(60deg) rotateZ(0deg) translateZ(5px);}
-    to{transform: rotateX(60deg) rotateZ(360deg) translateZ(5px);}
-}
