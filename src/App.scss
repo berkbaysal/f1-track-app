@@ -1,0 +1,50 @@
+@import url("https://use.typekit.net/qqt2chb.css");
+
+*{
+    font-family: titillium-web, sans-serif; 
+}
+
+#root{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.track-container{
+    width: 600px;
+    height: 600px;
+    perspective: 700px;
+    background-color: black;
+    overflow: hidden;
+    //animation: rotateTrack 20s linear infinite;
+    position: relative;
+}
+.drs{
+    position: absolute;
+    scale: 0.7;
+    transform-style: preserve-3d;
+    animation: rotateDRS 20s linear infinite;
+    color: white;
+    z-index: 20;
+    
+}
+.track{
+    position: absolute;
+    scale: 0.7;
+    transform-style: preserve-3d;
+    animation: rotateTrack 20s linear infinite;
+    color: white;
+    
+}
+
+
+@keyframes rotateTrack{
+    from{transform: rotateX(60deg) rotateZ(0deg) ;}
+    to{transform: rotateX(60deg) rotateZ(360deg);}
+}
+
+@keyframes rotateDRS{
+    from{transform: rotateX(60deg) rotateZ(0deg) translateZ(5px);}
+    to{transform: rotateX(60deg) rotateZ(360deg) translateZ(5px);}
+}
