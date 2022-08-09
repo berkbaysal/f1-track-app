@@ -1,6 +1,7 @@
 .track-container {
-    width: 500px;
-    height: 400px;
+    height: min(80%, 25vw);
+    max-height: 550px;
+    width: 80%;
     perspective: 700px;
     background-color: white;
     overflow: hidden;
@@ -15,11 +16,10 @@
     }
 
     .track {
-        position: absolute;
-        scale: 0.7;
         animation-fill-mode: forwards;
         transform-style: preserve-3d;
         color: var(--track-color);
+
     }
 
 
@@ -45,5 +45,13 @@
     100% {
         opacity: 1;
         transform: translateZ(0)
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    .track-container {
+        height: min(80%, 100vw);
+        max-height: 750px;
+        width: 80%;
     }
 }

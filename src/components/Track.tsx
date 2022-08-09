@@ -19,18 +19,20 @@ const Track = () => {
     const prevView = availableViews[view.prev]
     console.log(currentView)
     const animation = keyframes`
-        from{transform: rotateX(${activeTrack.angles[prevView].rotateX}) rotateY(${activeTrack.angles[prevView].rotateY}) rotateZ(${activeTrack.angles[prevView].rotateZ});}
-        to{transform: rotateX(${activeTrack.angles[currentView].rotateX}) rotateY(${activeTrack.angles[currentView].rotateY}) rotateZ(${activeTrack.angles[currentView].rotateZ});}
+        from{transform: rotateX(${activeTrack.angles[prevView].rotateX}) rotateY(${activeTrack.angles[prevView].rotateY}) rotateZ(${activeTrack.angles[prevView].rotateZ}) scale(0.7);}
+        to{transform: rotateX(${activeTrack.angles[currentView].rotateX}) rotateY(${activeTrack.angles[currentView].rotateY}) rotateZ(${activeTrack.angles[currentView].rotateZ}) scale(0.7);}
         }
         `
     const Map = styled.div`animation ${animation} 2s`;
-    const turnMarks = activeTrack.turns.map((position, index) => (<TurnMarker turn={index} key={"turn " + index} />));
+    //TRACK MARKS ARE DISABLED
+    //const turnMarks = activeTrack.turns.map((position, index) => (<TurnMarker turn={index} key={"turn " + index} />));
     const sectorMarks = activeTrack.sectors.map((position, index) => (<Sector sectorNumber={index} key={"sector" + index} />));
     const drsMarks = activeTrack.drsZones.map((position, index) => (<DrsMarker drsZoneNumber={index } key={"drs" + index} />))
     return (
         <div className="track-container">
             <Map className="track">
-                {view.current === 0 ? turnMarks : view.current === 1 ? sectorMarks : drsMarks}
+                {/* {view.current === 0 ? turnMarks : view.current === 1 ? sectorMarks : drsMarks} FOR TRACK MARKS IN FUTURE*/}
+                {view.current === 0 ? (<></>) : view.current === 1 ? sectorMarks : drsMarks}
                 <MapBuilder track={activeTrack} />
             </Map>
         </div>

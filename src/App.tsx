@@ -1,18 +1,18 @@
-import { useEffect, useRef, useState } from "react"
-import Button from "./components/Button";
 import TopBar from "./components/TopBar";
 import Track from "./components/Track";
 import TrackInfo from "./components/TrackInfo";
 import { changeView } from "./features/view";
 import { useAppSelector, useAppDispatch } from "./hooks"
-import ReactCountryFlag from "react-country-flag";
+import Flag from "react-world-flags";
 import { selectActiveTrack } from "./features/activeTrack";
-import Select from "@mui/joy/Select"
-import Option from "@mui/joy/Option"
+import Select from "@mui/material/Select"
+import MenuItem from '@mui/material/MenuItem';
 import tracks from "./assets/data/trackData"
-import ListItemDecorator from '@mui/joy/ListItemDecorator';
-import { formulaTheme } from "./components/MUI_Themes/SelectTheme";
-import { CssVarsProvider } from "@mui/joy/styles"
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { theme } from "./theme"
+import { ThemeProvider } from "@mui/material";
+
 
 function App() {
 
@@ -20,15 +20,16 @@ function App() {
     const activeTrack = useAppSelector(selectActiveTrack);
 
     const trackOptions = tracks.map(track => (
-        <Option value={track.name} label={<span><ReactCountryFlag countryCode={track.country} />{track.name}</span>}>
-            <ListItemDecorator>
-                <ReactCountryFlag countryCode={track.country} />
-            </ListItemDecorator>
+        <MenuItem value={track.name} className="option-item" sx={{ fontFamily: "formula1-regular" }}>
+            <Flag code={track.country} className="option-flag" />
             {track.name}
-        </Option>));
+        </MenuItem>));
 
     function updateView(nextView: number) {
         dispatch(changeView(nextView))
+    }
+    const muiStyle = {
+        fontFamily: "formula1-bold",
     }
 
     return (
@@ -36,26 +37,22 @@ function App() {
             <TopBar />
             <div className="main-content">
                 <div className="map-box">
-                    <Select defaultValue={activeTrack.name} className="select-track"
-                        sx={{
-                            fontFamily: "sans-serif",
-                            border: "none",
-                            backgroundColor:"red"
-                        }}>
+                    <Select defaultValue={activeTrack.name} className="select-track" variant="standard"
+                        sx={{ fontFamily: "formula1-regular" }}>
                         {trackOptions}
                     </Select>
                     <Track />
                     <div className="button-group">
-                        <span onClick={() => { updateView(0) }}><Button label="Track Layout"></Button></span>
-                        <span onClick={() => { updateView(1) }}><Button label="Track Sectors"></Button></span>
-                        <span onClick={() => { updateView(2) }}><Button label="DRS Zones"></Button></span>
+                        <ThemeProvider  theme={theme}>
+                                <span  onClick={() => { updateView(0) }}><Button className="button" variant="contained" sx={muiStyle}>Layout</Button></span>
+                                <span  onClick={() => { updateView(1) }}><Button variant="contained" className="button" sx={muiStyle}>Sectors</Button></span>
+                                <span  onClick={() => { updateView(2) }}><Button variant="contained" className="button" sx={muiStyle}>DRS Zones</Button></span>
+                        </ThemeProvider>
                     </div>
-
                 </div>
-
                 <div className="track-info">
                     <h1 className="track-name">
-                        <ReactCountryFlag countryCode={activeTrack.country} className="country-flag" />
+                        <Flag code={activeTrack.country} className="country-flag" />
                         {activeTrack.name}
                     </h1>
                     <TrackInfo />

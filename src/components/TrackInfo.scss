@@ -10,7 +10,6 @@
         .info-title {
             padding: 0.2rem 0;
             font-weight: 700;
-            font-size: 1.2rem;
         }
 
         .info-data {
@@ -26,4 +25,14 @@
             padding-bottom: 1rem;
         }
     }
+}
+
+@media only screen and (max-width:1360px) {
+    .info-container{
+
+        .info-unit{
+            font-size: 1rem;
+        }
+    }
+    
 }

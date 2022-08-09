@@ -12,6 +12,9 @@ interface Turn {
 }
 
 const TurnMarker: React.FC<Turn> = ({ turn }) => {
+
+    //THIS FUNCTIONALITY WILL BE ADDED LATER
+
     const activeTrack = useAppSelector(selectActiveTrack)
     const view = useAppSelector(selectView)
     const position = activeTrack.turns[turn];

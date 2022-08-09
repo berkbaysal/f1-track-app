@@ -12,8 +12,10 @@
     font-family: 'formula1-regular';
     src: url('./assets/fonts/Formula1-Regular.ttf');
 }
+
 @import url("https://use.typekit.net/qqt2chb.css");
-:root{
+
+:root {
     --track-color: #000000;
     --main-color: #e10600;
 }
@@ -25,6 +27,7 @@
 
 html {
     background-color: white;
+    
 }
 
 
@@ -32,8 +35,10 @@ html {
     font-family: 'formula1-bold';
 }
 
-.select-track{
-    font-family: "formula1-bold";          
+.option-flag {
+    margin-right: 1rem;
+    height: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .app {
@@ -41,10 +46,15 @@ html {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: auto;
+    align-items: center;
+    
+
     .main-content {
+        max-width: 2000px;
         padding: 4rem 4rem;
         display: flex;
-        height: 100%;
+        
 
         .map-box {
             display: flex;
@@ -52,13 +62,23 @@ html {
             width: 50%;
             height: 100%;
             align-items: center;
-            justify-content: center;
-            
+            padding-top:4rem;
 
-            .button-group{
-                display: flex;
+            .select-track {
+                width: 70%;
                 
             }
+
+
+            .button-group {
+                display: flex;
+                height: 10%;
+                
+                .button{
+                    margin: 0 1rem;
+                }
+            }
+
             border-right: 6px solid var(--main-color);
             border-top: 6px solid var(--main-color);
             border-radius: 0 4rem 0 0;
@@ -70,15 +90,70 @@ html {
             font-size: 1.5rem;
             text-align: left;
             font-weight: 300;
-            .country-flag{
+            display: flex;
+
+            .country-flag {
                 margin-right: 1rem;
-                font-size: 2rem;
+                height: 2rem;
+                border: 1px solid rgba(0, 0, 0, 0.5);
             }
         }
-        .track-info{
+
+        .track-info {
             margin: 0 4rem;
             width: 50%;
         }
     }
-  
+
+}
+@media only screen and (max-width:1360px) {
+
+    .app{
+        .main-content{
+            padding: 3rem 1rem;
+            .map-box{
+                width: 45%;
+                .select-track{
+                    width: 90%;
+                }
+                .button-group{
+                    .button{
+                        margin: 0 0.5rem;
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+            .track-info{
+                width: 55%;
+            }
+        }
+    }
+}
+@media only screen and (max-width:1000px) {
+    .app{
+        .main-content{
+            flex-direction: column;
+            padding: 3rem 3rem;
+            .map-box{
+                width: 100%;
+                height: unset;
+                .button-group{
+                    margin: 2rem 0;
+                    height: unset;
+                    .button{
+                        height: 100%;
+                    }
+                }
+            }
+            .track-name{
+
+            }
+            .track-info{
+                width: auto;
+                margin: unset;
+
+            }
+        }
+
+    }
 }
