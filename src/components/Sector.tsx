@@ -1,16 +1,25 @@
 import { } from 'react'
 import "./Sector.scss"
-import {Angle,Position} from "../assets/data/trackData"
 import styled, { keyframes } from "styled-components"
+import { useAppSelector } from '../hooks'
+import { selectActiveTrack } from '../features/activeTrack'
+import { selectView } from '../features/view'
 interface IProps {
   sectorNumber: number,
-  position: Position,
-  angles: Angle[]
 }
 
-const Sector: React.FC<IProps> = ({ sectorNumber, position, angles}) => {
+const Sector: React.FC<IProps> = ({ sectorNumber}) => {
+  const activeTrack = useAppSelector(selectActiveTrack);
+  const view = useAppSelector(selectView);
+  const availableViews = Object.keys(activeTrack.angles)
+  const currentViewKey = availableViews[view.current]
+  const prevViewKey = availableViews[view.prev]
+
+  const angles = {current: activeTrack.angles[currentViewKey] , prev: activeTrack.angles[prevViewKey]}
+  const position = activeTrack.sectors[sectorNumber]
+
   let sectorColor: string;
-  switch (sectorNumber) {
+  switch (sectorNumber+1) {
     case (1):
       sectorColor = "#DF0203";
       break;
@@ -22,8 +31,8 @@ const Sector: React.FC<IProps> = ({ sectorNumber, position, angles}) => {
       break; //
   }
   const animation = keyframes `
-  from{}
-  to{transform: rotateZ(-${angles[1].rotateZ}) rotateX(-${angles[1].rotateX});}
+  from{transform: rotateZ(-${angles.prev.rotateZ}) rotateX(-${angles.prev.rotateX});}
+  to{transform: rotateZ(-${angles.current.rotateZ}) rotateX(-${angles.current.rotateX});}
   `
   const SectorDiv = styled.div`
   left:${position.positionX};
@@ -36,7 +45,7 @@ const Sector: React.FC<IProps> = ({ sectorNumber, position, angles}) => {
 
   return (
     <SectorDiv className="sector-banner">
-      {"SECTOR " + sectorNumber}
+      {"SECTOR " + (sectorNumber + 1)}
     </SectorDiv>
   )
 }

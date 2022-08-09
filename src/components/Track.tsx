@@ -8,21 +8,25 @@ import styled, { keyframes } from "styled-components"
 import TurnMarker from './TurnMarker'
 import DrsMarker from './DrsMarker'
 import MapBuilder from './MapBuilder'
+import { selectActiveTrack } from '../features/activeTrack'
 
 
 const Track = () => {
     const view = useAppSelector(selectView)
-    const activeTrack: Track = trackData.find(track => track.name === "Bahrain International Circuit")
-
+    const activeTrack = useAppSelector(selectActiveTrack);
+    const availableViews = Object.keys(activeTrack.angles)
+    const currentView = availableViews[view.current]
+    const prevView = availableViews[view.prev]
+    console.log(currentView)
     const animation = keyframes`
-        from{transform: rotateX(${activeTrack.angles[view.prev].rotateX}) rotateY(${activeTrack.angles[view.prev].rotateY}) rotateZ(${activeTrack.angles[view.prev].rotateZ});}
-        to{transform: rotateX(${activeTrack.angles[view.current].rotateX}) rotateY(${activeTrack.angles[view.current].rotateY}) rotateZ(${activeTrack.angles[view.current].rotateZ});}
+        from{transform: rotateX(${activeTrack.angles[prevView].rotateX}) rotateY(${activeTrack.angles[prevView].rotateY}) rotateZ(${activeTrack.angles[prevView].rotateZ});}
+        to{transform: rotateX(${activeTrack.angles[currentView].rotateX}) rotateY(${activeTrack.angles[currentView].rotateY}) rotateZ(${activeTrack.angles[currentView].rotateZ});}
         }
         `
     const Map = styled.div`animation ${animation} 2s`;
-    const turnMarks = activeTrack.turns.map((position, index) => <TurnMarker turn={index + 1} position={position} angles={activeTrack.angles} key={"turn " + index} />)
-    const sectorMarks = activeTrack.sectors.map((position, index) => <Sector sectorNumber={index + 1} position={position} angles={activeTrack.angles} key={index}></Sector>);
-    const drsMarks = activeTrack.drsZones.map((position, index) => <DrsMarker drsZoneNumber={index + 1} position={position} angles={activeTrack.angles}></DrsMarker>)
+    const turnMarks = activeTrack.turns.map((position, index) => (<TurnMarker turn={index} key={"turn " + index} />));
+    const sectorMarks = activeTrack.sectors.map((position, index) => (<Sector sectorNumber={index} key={"sector" + index} />));
+    const drsMarks = activeTrack.drsZones.map((position, index) => (<DrsMarker drsZoneNumber={index } key={"drs" + index} />))
     return (
         <div className="track-container">
             <Map className="track">

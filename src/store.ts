@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import viewReducer from "./features/view"
+import activeTrackReducer from "./features/activeTrack"
 
 
 export const store = configureStore({
     reducer:{
         view: viewReducer,
+        activeTrack: activeTrackReducer,
     }
 })
 

@@ -11,13 +11,8 @@ export interface Position {
 export interface Track {
     id: number,
     name: string,
-    numberOfDrsZones: number,
-    circuitLength: string,
-    numberOfLaps: number,
-    raceDistance: string,
-    lapRecord: { time: string, driver: string, year: string },
-    firstGrandPrix: string,
-    angles: Angle[],
+    trackInfo: { title: string, data: string }[]
+    angles: { layout: Angle, sector: Angle, drs: Angle },
     sectors: Position[],
     turns: Position[]
     drsZones: Position[]
@@ -28,33 +23,34 @@ const tracks: Track[] = [
     {
         id: 1,
         name: "Bahrain International Circuit",
-        numberOfDrsZones: 3,
-        circuitLength: "5.412 km",
-        numberOfLaps: 57,
-        raceDistance: "308.238 km",
-        lapRecord: { time: "1:31.447", driver: "De la Rosa", year: "2005" },
-        firstGrandPrix:"2004",
+        trackInfo: [
+            { title: "Number of DRS Zones", data: "3" },
+            { title: "Circuit Length", data: "5.412 km" },
+            { title: "Race Distance", data: "308.238 km" },
+            { title: "Lap Record", data: "1:31.447, De la Rosa, 2005" },
+            { title: "First Grandprix", data: "2004" },
+        ],
         angles:
-            [
-                {
-                    rotateX: "0deg",
-                    rotateY: "0deg",
-                    rotateZ: "0deg"
-                },
-                {
-                    rotateX: "60deg",
-                    rotateY: "0deg",
-                    rotateZ: "45deg"
-                },
-                {
-                    rotateX: "60deg",
-                    rotateY: "0deg",
-                    rotateZ: "0deg"
-                },
-            ],
+        {
+            layout: {
+                rotateX: "0deg",
+                rotateY: "0deg",
+                rotateZ: "0deg"
+            },
+            sector: {
+                rotateX: "60deg",
+                rotateY: "0deg",
+                rotateZ: "45deg"
+            },
+            drs: {
+                rotateX: "60deg",
+                rotateY: "0deg",
+                rotateZ: "0deg"
+            },
+        },
         sectors: [
             {
-                positionX: "-75px",
+                positionX: "-85px",
                 positionY: "250px",
             },
             {
@@ -62,7 +58,7 @@ const tracks: Track[] = [
                 positionY: "25px",
             },
             {
-                positionX: "400px",
+                positionX: "380px",
                 positionY: "50px",
             },
         ],
@@ -132,7 +128,7 @@ const tracks: Track[] = [
 
         drsZones: [
             {
-                positionX: "-35px",
+                positionX: "-65px",
                 positionY: "100px",
             },
             {

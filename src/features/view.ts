@@ -14,6 +14,7 @@ export const viewSlice = createSlice({
     initialState,
     reducers: {
         changeView: (state, action:PayloadAction<number>) => {
+            if(action.payload === state.value.current){return;} //ignore change if changing to same view.
             state.value = { current: action.payload, prev: state.value.current };
         },
     }

@@ -5,15 +5,16 @@ import styled, { keyframes } from "styled-components"
 import { useAppSelector } from '../hooks'
 import { selectView } from '../features/view'
 import trackData from "../assets/data/trackData"
+import { selectActiveTrack } from '../features/activeTrack'
 
 interface Turn {
     turn: number
-    position: Position
-    angles: Angle[]
 }
 
-const TurnMarker: React.FC<Turn> = ({ turn, position, angles }) => {
+const TurnMarker: React.FC<Turn> = ({ turn }) => {
+    const activeTrack = useAppSelector(selectActiveTrack)
     const view = useAppSelector(selectView)
+    const position = activeTrack.turns[turn];
     const animation = keyframes `
     0%{opacity:0;}
     25%{opacity:0;}
@@ -27,7 +28,7 @@ const TurnMarker: React.FC<Turn> = ({ turn, position, angles }) => {
     `
     return (
         <TrackMarker className='turn-marker'>
-            {turn}
+            {turn + 1}
         </TrackMarker>
     )
 }
