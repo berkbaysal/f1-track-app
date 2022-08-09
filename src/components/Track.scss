@@ -6,7 +6,7 @@
     overflow: hidden;
     position: relative;
 
-    .drs {
+    .drs-zone {
         position: absolute;
         opacity: 0.7;
         animation: DRS-land 3s;
@@ -21,29 +21,6 @@
         transform-style: preserve-3d;
     }
 
-    .--view-0-1 {
-        transform-style: preserve-3d;
-        animation: zero-to-one 2s;
-        animation-fill-mode: forwards;
-    }
-
-    .--view-0-2 {
-        transform-style: preserve-3d;
-        animation: zero-to-two 2s;
-        animation-fill-mode: forwards;
-    }
-
-    .--view-1-2 {
-        transform-style: preserve-3d;
-        animation: one-to-two 2s;
-        animation-fill-mode: forwards;
-    }
-
-    .--view-2-0 {
-        transform-style: preserve-3d;
-        animation: two-to-zero 2s;
-        animation-fill-mode: forwards;
-    }
 
 }
 

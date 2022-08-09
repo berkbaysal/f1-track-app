@@ -5,10 +5,10 @@ import styled, { keyframes } from "styled-components"
 interface IProps {
   sectorNumber: number,
   position: Position,
-  angle: Angle
+  angles: Angle[]
 }
 
-const Sector: React.FC<IProps> = ({ sectorNumber, position, angle}) => {
+const Sector: React.FC<IProps> = ({ sectorNumber, position, angles}) => {
   let sectorColor: string;
   switch (sectorNumber) {
     case (1):
@@ -23,7 +23,7 @@ const Sector: React.FC<IProps> = ({ sectorNumber, position, angle}) => {
   }
   const animation = keyframes `
   from{}
-  to{transform: rotateX(${angle.rotateX});}
+  to{transform: rotateZ(-${angles[1].rotateZ}) rotateX(-${angles[1].rotateX});}
   `
   const SectorDiv = styled.div`
   left:${position.positionX};

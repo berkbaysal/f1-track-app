@@ -1,0 +1,12 @@
+.turn-marker{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background-color: black;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    position: absolute;
+}

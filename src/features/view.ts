@@ -7,7 +7,7 @@ interface ViewState{
         prev:number
     }
 }
-const initialState:ViewState = {value:{ current: 1, prev: 0 }};
+const initialState:ViewState = {value:{ current: 1, prev: 1 }};
 
 export const viewSlice = createSlice({
     name: "view",
