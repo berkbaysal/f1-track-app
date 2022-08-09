@@ -1,0 +1,29 @@
+.info-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3rem 0;
+    font-family: "titillium-web"; 
+
+    .info-unit {
+        font-size: 1.2rem;
+        border-radius: 0 0 1rem 0;
+        .info-title {
+            padding: 0.2rem 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .info-data {
+            font-family: "titillium-web"; 
+            font-weight: 400;
+        }
+
+    }
+    .quote-box{
+        padding-top:3rem;
+        grid-column: 1/ span 2 ;
+        h2{
+            padding-bottom: 1rem;
+        }
+    }
+}

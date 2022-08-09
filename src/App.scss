@@ -12,8 +12,10 @@
     font-family: 'formula1-regular';
     src: url('./assets/fonts/Formula1-Regular.ttf');
 }
+@import url("https://use.typekit.net/qqt2chb.css");
 :root{
     --track-color: #000000;
+    --main-color: #e10600;
 }
 
 * {
@@ -25,33 +27,48 @@ html {
     background-color: white;
 }
 
+
 #root {
     font-family: 'formula1-bold';
 }
 
 .app {
     width: 100vw;
-
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     .main-content {
-        padding: 0 4rem;
+        padding: 4rem 4rem;
+        display: flex;
+        height: 100%;
 
         .map-box {
             display: flex;
             flex-direction: column;
-            width: 100%;
-            justify-content: center;
+            width: 50%;
+            height: 100%;
             align-items: center;
+            justify-content: center;
             .button-group{
                 display: flex;
                 
             }
+            border-right: 6px solid var(--main-color);
+            border-top: 6px solid var(--main-color);
+            border-radius: 0 4rem 0 0;
+
         }
 
         .track-name {
-            font-family: "formula1-wide";
+            font-family: "formula1-bold";
             font-size: 1.5rem;
-            text-align: center;
+            text-align: left;
             font-weight: 300;
         }
+        .track-info{
+            margin: 0 4rem;
+            width: 50%;
+        }
     }
+  
 }

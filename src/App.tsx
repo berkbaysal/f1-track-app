@@ -26,10 +26,12 @@ function App() {
                         <span onClick={() => { updateView(1) }}><Button label="Track Sectors"></Button></span>
                         <span onClick={() => { updateView(2) }}><Button label="DRS Zones"></Button></span>
                     </div>
+
                 </div>
-                <h1 className="track-name">Bahrain International Circuit</h1>
+
                 <div className="track-info">
-                    <TrackInfo/>
+                    <h1 className="track-name">Bahrain International Circuit</h1>
+                    <TrackInfo />
                 </div>
             </div>
         </div>
