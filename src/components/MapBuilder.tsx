@@ -18,7 +18,7 @@ const MapBuilder:React.FC<IProps> = ({track}) => {
 
     let displayElements;
     switch (track.id){
-        case 1:
+        case 0:
             displayElements = [<Bahrain/>,<BahrainSectors/>,<><DRS className="drs-zone"/><Bahrain/></>]
         break;
     }

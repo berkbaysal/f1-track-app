@@ -32,6 +32,10 @@ html {
     font-family: 'formula1-bold';
 }
 
+.select-track{
+    font-family: "formula1-bold";          
+}
+
 .app {
     width: 100vw;
     height: 100vh;
@@ -49,6 +53,8 @@ html {
             height: 100%;
             align-items: center;
             justify-content: center;
+            
+
             .button-group{
                 display: flex;
                 
@@ -64,6 +70,10 @@ html {
             font-size: 1.5rem;
             text-align: left;
             font-weight: 300;
+            .country-flag{
+                margin-right: 1rem;
+                font-size: 2rem;
+            }
         }
         .track-info{
             margin: 0 4rem;
