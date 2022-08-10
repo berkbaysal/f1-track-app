@@ -1,4 +1,4 @@
-import { TextField, ThemeProvider } from '@mui/material'
+import { MenuItem, TextField, ThemeProvider } from '@mui/material'
 import { useEffect, useRef, useState } from 'react'
 import { searchTheme } from './theme'
 import "./TopBar.scss"
@@ -31,8 +31,12 @@ const TopBar = () => {
   }
 
   function createSearchJSX(searchResults: Track[]) {
+    if (searchResults.length === 0) {
+      return (<li className='result'>No matching results</li>)
+    }
+
     return (searchResults.map(track => (
-      <li className="result" key={track.name} onClick={(e) => {handleSearchClick(track.name)}}>
+      <li className="result" key={track.name} onClick={(e) => { handleSearchClick(track.name) }}>
         <div className="country-flag"><Flag code={track.country.code} /></div>
         <div className="circuit-info">
           <span className='circuit-name'>{track.name}</span>
@@ -45,7 +49,7 @@ const TopBar = () => {
     setActiveSearchTerm(e.target.value)
 
   }
-  function handleSearchClick(target){
+  function handleSearchClick(target) {
     dispatch(changeActiveTrack(target));
     setActiveSearchTerm("");
   }
@@ -54,7 +58,7 @@ const TopBar = () => {
   }
 
   function handleBlur() {
-    setTimeout(()=>{setSearchResultsVisible(false)},100);
+    setTimeout(() => { setSearchResultsVisible(false) }, 100);
   }
 
   console.log(searchResultsVisible);
@@ -65,21 +69,25 @@ const TopBar = () => {
       <div className="app-name">F1 Track Information App</div>
       <div className="search-group-container">
         <div className="search-group" onFocus={handleFocus} onBlur={handleBlur}>
-          <ThemeProvider theme={searchTheme}>
-            <TextField
-              ref={searchBarRef}
-              placeholder="Search for a Track"
-              className="search-bar"
-              label="" variant="outlined"
-              value={activeSearchTerm}
-              onChange={(e) => { handleChange(e) }} />
-          </ThemeProvider>
-          {(activeSearchTerm.length > 0 && searchResultsVisible) &&
-            <div className="search-results">
-              <ul className="result-list">
-                {createSearchJSX(populateSearchResults())}
-              </ul>
-            </div>}
+          <form>
+            <ThemeProvider theme={searchTheme}>
+              <TextField
+                ref={searchBarRef}
+                placeholder="Search for a Track"
+                className="search-bar"
+                label="" variant="outlined"
+                value={activeSearchTerm}
+                onChange={(e) => { handleChange(e) }} >
+                {populateSearchResults().map(track => (<MenuItem value={track.name}>{track.name}</MenuItem>))}
+              </TextField>
+            </ThemeProvider>
+            {(activeSearchTerm.length > 0 && searchResultsVisible) &&
+              <div className="search-results">
+                <ul className="result-list">
+                  {createSearchJSX(populateSearchResults())}
+                </ul>
+              </div>}
+          </form>
         </div>
       </div>
 

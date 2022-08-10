@@ -133,8 +133,8 @@ html {
     .app{
         .main-content{
             flex-direction: column;
-            padding: 3rem 3rem;
-            width: 90%;
+            padding: 1rem 1rem;
+            width: 100%;
             .map-box{
                 width: 100%;
                 height: unset;
@@ -152,7 +152,7 @@ html {
             .track-info{
                 width: auto;
                 margin: unset;
-
+                padding: 0%;
             }
         }
 
