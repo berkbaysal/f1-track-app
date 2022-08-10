@@ -54,7 +54,6 @@ html {
         max-width: 2000px;
         padding: 4rem 4rem;
         display: flex;
-        
 
         .map-box {
             display: flex;
@@ -66,6 +65,10 @@ html {
 
             .select-track {
                 width: 70%;
+                
+            }
+            .select-track:focus {
+
                 
             }
 
@@ -134,6 +137,7 @@ html {
         .main-content{
             flex-direction: column;
             padding: 3rem 3rem;
+            width: 90%;
             .map-box{
                 width: 100%;
                 height: unset;

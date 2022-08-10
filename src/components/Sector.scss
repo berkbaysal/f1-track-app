@@ -9,4 +9,23 @@
     position: absolute;
     font-style: italic;
     transform-style: preserve-3d;
+
+}
+@media only screen and (max-width:1360px) {
+    .sector-banner{
+        font-size: 0.75rem;
+        padding: 0.3rem 0.5rem 0.3rem 0.3rem;
+    }
+}
+@media only screen and (max-width:1000px) {
+    .sector-banner{
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+    }
+}
+@media only screen and (max-width:600px) {
+    .sector-banner{
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem 0.3rem 0.3rem;
+    }
 }

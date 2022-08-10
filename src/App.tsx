@@ -4,20 +4,22 @@ import TrackInfo from "./components/TrackInfo";
 import { changeView } from "./features/view";
 import { useAppSelector, useAppDispatch } from "./hooks"
 import Flag from "react-world-flags";
-import { selectActiveTrack } from "./features/activeTrack";
+import { selectActiveTrack, changeActiveTrack } from "./features/activeTrack";
 import Select from "@mui/material/Select"
 import MenuItem from '@mui/material/MenuItem';
 import tracks from "./assets/data/trackData"
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { theme } from "./theme"
+import { themeButton, selectTheme } from "./components/theme"
 import { ThemeProvider } from "@mui/material";
+import { useRef } from "react";
 
 
 function App() {
 
     const dispatch = useAppDispatch();
     const activeTrack = useAppSelector(selectActiveTrack);
+
 
     const trackOptions = tracks.map(track => (
         <MenuItem value={track.name} className="option-item" sx={{ fontFamily: "formula1-regular" }}>
@@ -28,25 +30,27 @@ function App() {
     function updateView(nextView: number) {
         dispatch(changeView(nextView))
     }
-    const muiStyle = {
-        fontFamily: "formula1-bold",
+    function handleChange(e) {
+        dispatch(changeActiveTrack(e.target.value));
     }
-
     return (
         <div className="app">
             <TopBar />
             <div className="main-content">
                 <div className="map-box">
-                    <Select defaultValue={activeTrack.name} className="select-track" variant="standard"
-                        sx={{ fontFamily: "formula1-regular" }}>
-                        {trackOptions}
-                    </Select>
+                    <ThemeProvider theme={selectTheme}>
+                        <Select className="select-track" variant="standard"
+                            value={activeTrack.name}
+                            onChange={handleChange}>
+                            {trackOptions}
+                        </Select>
+                    </ThemeProvider>
                     <Track />
                     <div className="button-group">
-                        <ThemeProvider  theme={theme}>
-                                <span  onClick={() => { updateView(0) }}><Button className="button" variant="contained" sx={muiStyle}>Layout</Button></span>
-                                <span  onClick={() => { updateView(1) }}><Button variant="contained" className="button" sx={muiStyle}>Sectors</Button></span>
-                                <span  onClick={() => { updateView(2) }}><Button variant="contained" className="button" sx={muiStyle}>DRS Zones</Button></span>
+                        <ThemeProvider theme={themeButton}>
+                            <span onClick={() => { updateView(0) }}><Button className="button" variant="contained" >Layout</Button></span>
+                            <span onClick={() => { updateView(1) }}><Button variant="contained" className="button">Sectors</Button></span>
+                            <span onClick={() => { updateView(2) }}><Button variant="contained" className="button">DRS Zones</Button></span>
                         </ThemeProvider>
                     </div>
                 </div>
