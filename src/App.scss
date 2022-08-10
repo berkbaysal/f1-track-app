@@ -29,12 +29,15 @@
 
 html {
     background-color: white;
-    
-}
 
+}
+body{
+    width: 100%;
+}
 
 #root {
     font-family: 'formula1-bold';
+    width: 100%;
 }
 
 .option-flag {
@@ -48,40 +51,42 @@ html {
     flex-direction: column;
     margin: auto;
     align-items: center;
-    
+    width: 100%;
 
     .main-content {
         max-width: 2000px;
         padding: 4rem 4rem;
         display: flex;
         flex-grow: 1;
+
         .map-box {
             display: flex;
             flex-direction: column;
             width: 50%;
             height: 100%;
             align-items: center;
-            padding-top:4rem;
+            padding-top: 4rem;
+            border-right: 6px solid var(--main-color);
+            border-top: 6px solid var(--main-color);
+            border-radius: 0 4rem 0 0;
 
             .select-track {
                 width: 60%;
-                
-                
+
+
             }
 
 
             .button-group {
                 display: flex;
                 height: 10%;
-                
-                .button{
+
+                .button {
                     margin: 0 1rem;
                 }
             }
 
-            border-right: 6px solid var(--main-color);
-            border-top: 6px solid var(--main-color);
-            border-radius: 0 4rem 0 0;
+
 
         }
 
@@ -106,50 +111,59 @@ html {
     }
 
 }
+
 @media only screen and (max-width:1360px) {
 
-    .app{
-        .main-content{
+    .app {
+        .main-content {
             padding: 3rem 1rem;
-            .map-box{
+
+            .map-box {
                 width: 45%;
-                .select-track{
+
+                .select-track {
                     width: 90%;
                 }
-                .button-group{
-                    .button{
+
+                .button-group {
+                    .button {
                         margin: 0 0.5rem;
                         font-size: 0.7rem;
                     }
                 }
             }
-            .track-info{
+
+            .track-info {
                 width: 55%;
             }
         }
     }
 }
+
 @media only screen and (max-width:1000px) {
-    .app{
-        .main-content{
+    .app {
+        .main-content {
             flex-direction: column;
             padding: 1rem 1rem;
             width: 100%;
-            .map-box{
+
+            .map-box {
                 width: 100%;
                 height: unset;
-                .button-group{
+
+                .button-group {
                     margin: 2rem 0;
                     height: unset;
-                    .button{
+
+                    .button {
                         height: 100%;
                     }
                 }
             }
-            .track-name{
 
-            }
-            .track-info{
+            .track-name {}
+
+            .track-info {
                 width: auto;
                 margin: unset;
                 padding: 0%;

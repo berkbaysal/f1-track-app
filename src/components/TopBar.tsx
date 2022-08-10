@@ -37,7 +37,7 @@ const TopBar = () => {
 
     return (searchResults.map(track => (
       <li className="result" key={track.name} onClick={(e) => { handleSearchClick(track.name) }}>
-        <div className="country-flag"><Flag code={track.country.code} /></div>
+        <div className="country-flag-container"><Flag code={track.country.code} /></div>
         <div className="circuit-info">
           <span className='circuit-name'>{track.name}</span>
           <span className='country-name'>{track.country.full}</span>
