@@ -11,21 +11,21 @@ export interface Position {
 export interface Track {
     id: number,
     name: string,
-    country: string,
+    country: {code:string, full:string}
     trackInfo: { title: string, data: string }[]
     trackQuote: string
     angles: { layout: Angle, sector: Angle, drs: Angle },
     sectors: Position[],
     turns: Position[]
     drsZones: Position[]
-
+    keywords?: string[]
 }
 
 const tracks: Track[] = [
     {
         id: 0,
         name: "Bahrain International Circuit",
-        country: "bh",
+        country: {code:"bh", full: "Bahrain"},
         trackInfo: [
             { title: "Country", data: "Bahrain" },
             { title: "Circuit Direction", data: "Clockwise" },
@@ -95,7 +95,7 @@ const tracks: Track[] = [
     {
         id: 1,
         name: "Jeddah Corniche Circuit",
-        country: "sa",
+        country: {code:"sa", full: "Saudi Arabia"},
         trackInfo: [
             { title: "Country", data: "Saudi Arabia" },
             { title: "Circuit Direction", data: "Counter-Clockwise" },
@@ -165,7 +165,7 @@ const tracks: Track[] = [
     {
         id: 2,
         name: "Albert Park Circuit",
-        country: "au",
+        country: {code: "au", full:"Australia"},
         trackInfo: [
             { title: "Country", data: "Australia" },
             { title: "Circuit Direction", data: "Clockwise" },
@@ -235,14 +235,14 @@ const tracks: Track[] = [
     {
         id: 3,
         name: "Autodromo Enzo e Dino Ferrari",
-        country: "it",
+        country: {code: "it", full: "Italy"},
         trackInfo: [
             { title: "Country", data: "Italy" },
             { title: "Circuit Direction", data: "Counter-Clockwise" },
             { title: "Number of Corners", data: "19" },
             { title: "Number of DRS Zones", data: "1" },
             { title: "Circuit Length", data: "4.909 km" },
-            { title: "Race Distance", data: "309.049  km" },
+            { title: "Race Distance", data: "309.049 km" },
             { title: "Lap Record", data: "1:15.484, Lewis Hamilton, 2020" },
             { title: "First Grandprix", data: "2020" },
             { title: "Most Wins (Driver)", data: "Max Verstappen (2)" },
@@ -297,14 +297,14 @@ const tracks: Track[] = [
     {
         id: 4,
         name: "Miami International Autodrome",
-        country: "us",
+        country: {code:"us", full:"United States of America"},
         trackInfo: [
             { title: "Country", data: "United States of America" },
             { title: "Circuit Direction", data: "Counter-Clockwise" },
             { title: "Number of Corners", data: "19" },
             { title: "Number of DRS Zones", data: "3" },
             { title: "Circuit Length", data: "5.412 km" },
-            { title: "Race Distance", data: "308.326  km" },
+            { title: "Race Distance", data: "308.326 km" },
             { title: "Lap Record", data: "1:31.361, Max Verstappen, 2022" },
             { title: "First Grandprix", data: "2022" },
             { title: "Most Wins (Driver)", data: "Max Verstappen (1)" },
@@ -360,6 +360,75 @@ const tracks: Track[] = [
             {
                 positionX: "61%",
                 positionY: "30%",
+            },
+        ]
+
+    },
+    {
+        id: 5,
+        name: "Circuit de Barcelona-Catalunya",
+        country: {code:"es", full:"Spain"},
+        trackInfo: [
+            { title: "Country", data: "Spain" },
+            { title: "Circuit Direction", data: "Counter-Clockwise" },
+            { title: "Number of Corners", data: "16" },
+            { title: "Number of DRS Zones", data: "2" },
+            { title: "Circuit Length", data: "4.675 km" },
+            { title: "Race Distance", data: "308.424 km" },
+            { title: "Lap Record", data: "1:18.149, Max Verstappen, 2021" },
+            { title: "First Grandprix", data: "1991" },
+            { title: "Most Wins (Driver)", data: "Michael Schumacher, Lewis Hamilton (6)" },
+            { title: "Most Wins (Constructor)", data: "Ferrari (8)" },
+            { title: "Last Winner", data: "Max Verstappen (Red Bull Racing)" },
+            { title: "First Winner", data: "Nigel Mansell (Williams-Renault)" },
+        ],
+        trackQuote: "The drivers love the Circuit de Barcelona-Catalunya, which is just as well, because they spend huge amounts of time pounding around it during winter testing. The track is a good mix of high- and low-speed corners, with the challenging Turn 3 right-hander a great chance to evaluate the balance of the car your team’s designers have given you to fight with for the season.",
+        angles:
+        {
+            layout: {
+                rotateX: "0deg",
+                rotateY: "0deg",
+                rotateZ: "0deg"
+            },
+            sector: {
+                rotateX: "60deg",
+                rotateY: "0deg",
+                rotateZ: "45deg"
+            },
+            drs: {
+                rotateX: "60deg",
+                rotateY: "0deg",
+                rotateZ: "0deg"
+            },
+        },
+        turns: [
+           //FOR TRACK TURN MARKERS IN FUTURE
+        ],
+        sectors: [
+            {
+                positionX: "5%",
+                positionY: "75%",
+               
+            },
+            {
+                positionX: "40%",
+                positionY: "0%",
+            },
+            {
+                positionX: "65%",
+                positionY: "80%",
+                
+            },
+        ],
+        drsZones: [
+            {
+                positionX: "55%",
+                positionY: "15%",
+            },
+            {
+                positionX: "45%",
+                positionY: "75%",
+                
             },
         ]
 

@@ -1,7 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 import blue from '@mui/material/colors/blue';
-import { Select } from '@mui/material';
+import { outlinedInputClasses, Select } from '@mui/material';
 import { red } from '@mui/material/colors';
+import { create } from 'domain';
 
 export const themeButton = createTheme({
     palette: {
@@ -37,3 +38,16 @@ export const selectTheme = createTheme({
         }
     }
   });
+
+  export const searchTheme = createTheme({
+    components:{
+        MuiInputBase:{
+            styleOverrides:{
+                root:{
+                    backgroundColor:"white",
+                    fontFamily:"formula1-regular,sans-serif"
+                },
+            }
+        }
+    }
+  })

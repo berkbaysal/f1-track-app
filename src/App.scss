@@ -23,7 +23,9 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
+
 
 html {
     background-color: white;
@@ -42,8 +44,6 @@ html {
 }
 
 .app {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -54,7 +54,7 @@ html {
         max-width: 2000px;
         padding: 4rem 4rem;
         display: flex;
-
+        flex-grow: 1;
         .map-box {
             display: flex;
             flex-direction: column;
@@ -64,11 +64,8 @@ html {
             padding-top:4rem;
 
             .select-track {
-                width: 70%;
+                width: 60%;
                 
-            }
-            .select-track:focus {
-
                 
             }
 
@@ -103,7 +100,7 @@ html {
         }
 
         .track-info {
-            margin: 0 4rem;
+            padding: 0 4rem;
             width: 50%;
         }
     }

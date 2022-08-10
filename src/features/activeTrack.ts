@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { RootState } from "../store";
 import tracks,{Track} from "../assets/data/trackData"
 
-const initialState:{value:Track} = {value:tracks[4]};
+const initialState:{value:Track} = {value:tracks[5]};
 
 export const activeTrackSlice = createSlice({
     name: "activeTrack",

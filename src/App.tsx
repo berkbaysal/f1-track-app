@@ -23,7 +23,7 @@ function App() {
 
     const trackOptions = tracks.map(track => (
         <MenuItem value={track.name} className="option-item" sx={{ fontFamily: "formula1-regular" }}>
-            <Flag code={track.country} className="option-flag" />
+            <Flag code={track.country.code} className="option-flag" />
             {track.name}
         </MenuItem>));
 
@@ -56,7 +56,7 @@ function App() {
                 </div>
                 <div className="track-info">
                     <h1 className="track-name">
-                        <Flag code={activeTrack.country} className="country-flag" />
+                        <Flag code={activeTrack.country.code} className="country-flag" />
                         {activeTrack.name}
                     </h1>
                     <TrackInfo />

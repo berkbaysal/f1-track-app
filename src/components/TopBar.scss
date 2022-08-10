@@ -1,23 +1,95 @@
-.top-bar{
+.top-bar {
     width: 100%;
     background-color: var(--main-color);
-    color:white;
-    font-family:"formula1-wide";
-    font-style: italic;
-    font-weight: bolder;
-    font-size:1.5rem;
+    color: white;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    .app-name{
-        padding: 2rem 4rem;
-        width: 100%;
+
+    .app-name {
+        padding: 2rem 2rem;
+        width: 50%;
         max-width: 2000px;
+        font-family: "formula1-wide";
+        font-style: italic;
+        
+        
+
+    }
+
+    .search-group-container {
+        width: 50%;
+        padding: 0rem 2rem;
+        
+
+        .search-group {
+            width: 100%;
+            position: relative;
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .search-results {
+                font-family: "formula1-regular", sans-serif;
+                flex-grow: 1;
+                position: absolute;
+                background-color: white;
+                z-index: 99;
+                left: 0;
+                bottom: 0;
+                transform: translateY(100%);
+                width: 100%;
+
+                .result-list {
+                    color: black;
+                    width: 100%;
+                    border: 2px solid black;
+                    .result {
+                        list-style: none;
+                        height: 4rem;
+                        display: flex;
+                        align-items: center;
+                        
+                        padding: 0 0.5rem;
+                        cursor: pointer;
+                        .country-flag {
+                            display: flex;
+                           
+                            width: 2rem;
+                        }
+
+                        .circuit-info {
+                            display: flex;
+                            flex-direction: column;
+                            margin-left: 1rem;
+
+                            .circuit-name {
+                                font-size: 1.3rem;
+                            }
+
+                            .country-name {
+                                font-size: 0.9rem;
+                            }
+                        }
+                    }
+                    .result:not(:last-of-type){
+                        border-bottom: 2px solid rgba(0,0,0,0.1);
+                    }
+                    .result:hover{
+                        background-color: rgba(0,0,0,0.1);
+                    }
+
+                }
+            }
+        }
     }
 }
+
 @media only screen and (max-width:1360px) {
-    .top-bar{
+    .top-bar {
         font-size: 1rem;
     }
-    
+
 }

@@ -19,9 +19,13 @@ import Italy from "../assets/img/tracks/italy-track-layout.svg"
 import ItalyDrs from "../assets/img/tracks/italy-track-drs.svg"
 import ItalySectors from "../assets/img/tracks/italy-track-sectors.svg"
 //US
-import Us from "../assets/img/tracks/us-track-layout.svg"
-import UsDrs from "../assets/img/tracks/us-track-drs.svg"
-import UsSectors from "../assets/img/tracks/us-track-sectors.svg"
+import Usa from "../assets/img/tracks/us-track-layout.svg"
+import UsaDrs from "../assets/img/tracks/us-track-drs.svg"
+import UsaSectors from "../assets/img/tracks/us-track-sectors.svg"
+//Spain
+import Spain from "../assets/img/tracks/spain-track-layout.svg"
+import SpainDrs from "../assets/img/tracks/spain-track-drs.svg"
+import SpainSectors from "../assets/img/tracks/spain-track-sectors.svg"
 
 
 //
@@ -48,7 +52,10 @@ const MapBuilder:React.FC<IProps> = ({track}) => {
             displayElements = [<Italy/>,<ItalySectors/>,<><ItalyDrs className="drs-zone"/><Italy/></>]
         break;
         case 4:
-            displayElements = [<Us/>,<UsSectors/>,<><UsDrs className="drs-zone"/><Us/></>]
+            displayElements = [<Usa/>,<UsaSectors/>,<><UsaDrs className="drs-zone"/><Usa/></>]
+        break;
+        case 5:
+            displayElements = [<Spain/>,<SpainSectors/>,<><SpainDrs className="drs-zone"/><Spain/></>]
         break;
     }
 
