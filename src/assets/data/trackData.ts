@@ -11,7 +11,7 @@ export interface Position {
 export interface Track {
     id: number,
     name: string,
-    country: {code:string, full:string}
+    country: { code: string, full: string }
     trackInfo: { title: string, data: string }[]
     trackQuote: string
     angles: { layout: Angle, sector: Angle, drs: Angle },
@@ -25,7 +25,7 @@ const tracks: Track[] = [
     {
         id: 0,
         name: "Bahrain International Circuit",
-        country: {code:"bh", full: "Bahrain"},
+        country: { code: "bh", full: "Bahrain" },
         trackInfo: [
             { title: "Country", data: "Bahrain" },
             { title: "Circuit Direction", data: "Clockwise" },
@@ -60,7 +60,7 @@ const tracks: Track[] = [
             },
         },
         turns: [
-           //FOR TRACK TURN MARKERS IN FUTURE
+            //FOR TRACK TURN MARKERS IN FUTURE
         ],
         sectors: [
             {
@@ -95,7 +95,7 @@ const tracks: Track[] = [
     {
         id: 1,
         name: "Jeddah Corniche Circuit",
-        country: {code:"sa", full: "Saudi Arabia"},
+        country: { code: "sa", full: "Saudi Arabia" },
         trackInfo: [
             { title: "Country", data: "Saudi Arabia" },
             { title: "Circuit Direction", data: "Counter-Clockwise" },
@@ -130,7 +130,7 @@ const tracks: Track[] = [
             },
         },
         turns: [
-           //FOR TRACK TURN MARKERS IN FUTURE
+            //FOR TRACK TURN MARKERS IN FUTURE
         ],
         sectors: [
             {
@@ -165,7 +165,7 @@ const tracks: Track[] = [
     {
         id: 2,
         name: "Albert Park Circuit",
-        country: {code: "au", full:"Australia"},
+        country: { code: "au", full: "Australia" },
         trackInfo: [
             { title: "Country", data: "Australia" },
             { title: "Circuit Direction", data: "Clockwise" },
@@ -200,7 +200,7 @@ const tracks: Track[] = [
             },
         },
         turns: [
-           //FOR TRACK TURN MARKERS IN FUTURE
+            //FOR TRACK TURN MARKERS IN FUTURE
         ],
         sectors: [
             {
@@ -235,7 +235,7 @@ const tracks: Track[] = [
     {
         id: 3,
         name: "Autodromo Enzo e Dino Ferrari",
-        country: {code: "it", full: "Italy"},
+        country: { code: "it", full: "Italy" },
         trackInfo: [
             { title: "Country", data: "Italy" },
             { title: "Circuit Direction", data: "Counter-Clockwise" },
@@ -270,7 +270,7 @@ const tracks: Track[] = [
             },
         },
         turns: [
-           //FOR TRACK TURN MARKERS IN FUTURE
+            //FOR TRACK TURN MARKERS IN FUTURE
         ],
         sectors: [
             {
@@ -297,7 +297,7 @@ const tracks: Track[] = [
     {
         id: 4,
         name: "Miami International Autodrome",
-        country: {code:"us", full:"United States of America"},
+        country: { code: "us", full: "United States of America" },
         trackInfo: [
             { title: "Country", data: "United States of America" },
             { title: "Circuit Direction", data: "Counter-Clockwise" },
@@ -332,7 +332,7 @@ const tracks: Track[] = [
             },
         },
         turns: [
-           //FOR TRACK TURN MARKERS IN FUTURE
+            //FOR TRACK TURN MARKERS IN FUTURE
         ],
         sectors: [
             {
@@ -367,7 +367,7 @@ const tracks: Track[] = [
     {
         id: 5,
         name: "Circuit de Barcelona-Catalunya",
-        country: {code:"es", full:"Spain"},
+        country: { code: "es", full: "Spain" },
         trackInfo: [
             { title: "Country", data: "Spain" },
             { title: "Circuit Direction", data: "Counter-Clockwise" },
@@ -402,13 +402,13 @@ const tracks: Track[] = [
             },
         },
         turns: [
-           //FOR TRACK TURN MARKERS IN FUTURE
+            //FOR TRACK TURN MARKERS IN FUTURE
         ],
         sectors: [
             {
                 positionX: "5%",
                 positionY: "75%",
-               
+
             },
             {
                 positionX: "40%",
@@ -417,7 +417,7 @@ const tracks: Track[] = [
             {
                 positionX: "65%",
                 positionY: "80%",
-                
+
             },
         ],
         drsZones: [
@@ -428,12 +428,76 @@ const tracks: Track[] = [
             {
                 positionX: "45%",
                 positionY: "75%",
-                
+
             },
         ]
 
     },
-    
+    {
+        id: 6,
+        name: "Circuit de Monaco",
+        country: { code: "mc", full: "Monaco" },
+        trackInfo: [
+            { title: "Country", data: "Monaco" },
+            { title: "Circuit Direction", data: "Clockwise" },
+            { title: "Number of Corners", data: "19" },
+            { title: "Number of DRS Zones", data: "1" },
+            { title: "Circuit Length", data: "3.337 km" },
+            { title: "Race Distance", data: "260.286 km" },
+            { title: "Lap Record", data: "1:12.909, Lewis Hamilton, 2021" },
+            { title: "First Grandprix", data: "1950" },
+            { title: "Most Wins (Driver)", data: "Ayrton Senna (6)" },
+            { title: "Most Wins (Constructor)", data: "McLaren (15)" },
+            { title: "Last Winner", data: "Sergio Pérez (Red Bull Racing)" },
+            { title: "First Winner", data: "Juan Manuel Fangio (Alfa Romeo)" },
+        ],
+        trackQuote: "Incredibly narrow and totally iconic. Nelson Piquet memorably described driving around Monaco as “like riding a bicycle around your living room”… which is fair. Despite that, it’s a challenge that nearly all drivers love, forcing them to put their skills on the line and rewarding millimetric accuracy. Overtaking on the tight streets is harder, however, with the 2003 Grand Prix witnessing a grand total of zero passing moves!",
+        angles:
+        {
+            layout: {
+                rotateX: "0deg",
+                rotateY: "0deg",
+                rotateZ: "0deg"
+            },
+            sector: {
+                rotateX: "60deg",
+                rotateY: "0deg",
+                rotateZ: "45deg"
+            },
+            drs: {
+                rotateX: "60deg",
+                rotateY: "0deg",
+                rotateZ: "0deg"
+            },
+        },
+        turns: [
+            //FOR TRACK TURN MARKERS IN FUTURE
+        ],
+        sectors: [
+            {
+                positionX: "50%",
+                positionY: "20%",
+            },
+            {
+                positionX: "55%",
+                positionY: "70%",
+            },
+            {
+                positionX: "20%",
+                positionY: "55%",
+                
+                
+            },
+        ],
+        drsZones: [
+            {
+                positionX: "0%",
+                positionY: "25%",
+            },
+        ]
+
+    },
+
 ]
 
 export default tracks;

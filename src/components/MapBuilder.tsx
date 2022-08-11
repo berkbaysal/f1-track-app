@@ -26,6 +26,10 @@ import UsaSectors from "../assets/img/tracks/us-track-sectors.svg"
 import Spain from "../assets/img/tracks/spain-track-layout.svg"
 import SpainDrs from "../assets/img/tracks/spain-track-drs.svg"
 import SpainSectors from "../assets/img/tracks/spain-track-sectors.svg"
+//Spain
+import Monaco from "../assets/img/tracks/monaco-track-layout.svg"
+import MonacoDrs from "../assets/img/tracks/monaco-track-drs.svg"
+import MonacoSectors from "../assets/img/tracks/monaco-track-sectors.svg"
 
 
 //
@@ -56,6 +60,9 @@ const MapBuilder:React.FC<IProps> = ({track}) => {
         break;
         case 5:
             displayElements = [<Spain/>,<SpainSectors/>,<><SpainDrs className="drs-zone"/><Spain/></>]
+        break;
+        case 6:
+            displayElements = [<Monaco/>,<MonacoSectors/>,<><MonacoDrs className="drs-zone"/><Monaco/></>]
         break;
     }
 
