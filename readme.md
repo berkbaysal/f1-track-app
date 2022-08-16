@@ -1,6 +1,6 @@
 # Formula 1 Inspired Track Information App
 
- - A live version of this project can be found at http://berkbaysal.com/f1/public/
+ - A live version of this project can be found at https://f1.berkbaysal.com
 
 ## Features:
 - Three different dynamic map views
